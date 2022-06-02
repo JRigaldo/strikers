@@ -1,0 +1,69 @@
+@keyframes modalIn {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 80px;
+  }
+}
+
+@-webkit-keyframes modalIn {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 80px;
+  }
+}
+@-moz-keyframes modalIn {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 80px;
+  }
+}
+
+@-o-keyframes modalIn {
+  0% {
+    top: 80px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes modalOut {
+  0% {
+    top: 80px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@-webkit-keyframes modalOut {
+  0% {
+    top: 80px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-moz-keyframes modalOut {
+  0% {
+    top: 80px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@-o-keyframes modalOut {
+  0% {
+    top: 80px;
+  }
+  100% {
+    top: 100%;
+  }
+}

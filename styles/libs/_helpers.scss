@@ -1,0 +1,154 @@
+%shadow {
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+%shadow-hover {
+  -webkit-box-shadow: 0px 7px 10px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 7px 10px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 7px 10px 4px rgba(0, 0, 0, 0.4);
+}
+
+%border-radius {
+  border-radius: 5px;
+}
+
+%-text--primary {
+  color: var(--theme-primary, #5523fa);
+}
+
+%-text--secondary {
+  color: var(--theme-secondary, #1696f1);
+}
+
+%-text--danger {
+  color: var(--danger, #FF0000);;
+}
+
+%-text--success {
+  color: var(--success, #77D970);;
+}
+
+.text-brand {
+  @extend %-text--secondary;
+  font-weight: var(--dark, #000000);;
+}
+
+.header__global nav ul {
+  @include flex-center;
+}
+
+.flex-center{
+  @include flex-center;
+}
+
+.flex-start{
+  @include flex-start;
+}
+
+.flex-end{
+  @include flex-end;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+.shadow-top {
+  -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+.block--container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.block--absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.block-relative{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+$times: 20;
+
+@for $i from 1 through $times {
+  .padding-#{$i}{
+    padding: #{$i}px;
+  }
+  .padding-top-#{$i}{
+    padding-top: #{$i}px;
+  }
+  .padding-bottom-#{$i}{
+    padding-bottom: #{$i}px;
+  }
+  .padding-left-#{$i}{
+    padding-left: #{$i}px;
+  }
+  .padding-right-#{$i}{
+    padding-right: #{$i}px;
+  }
+}
+
+@include medium-down{
+  @for $i from 1 through $times {
+  .padding-small-#{$i}{
+    padding: #{$i}px;
+  }
+  .padding-small-top-#{$i}{
+    padding-top: #{$i}px;
+  }
+  .padding-small-bottom-#{$i}{
+    padding-bottom: #{$i}px;
+  }
+  .padding-small-left-#{$i}{
+    padding-left: #{$i}px;
+  }
+  .padding-small-right-#{$i}{
+    padding-right: #{$i}px;
+  }
+}
+}
+
+.border-bottom{
+  border-bottom: 1px solid var(--gray-100, #E2E2E2);
+}
+
+.line{
+  height: 1px;
+  background-image: linear-gradient(90deg,rgba(0,0,0,0.00) 0%,#000000 50%,rgba(0,0,0,0.00) 100%);
+  opacity: .1;
+  width: 100%;
+}
+
+.bottom{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@include medium-down{
+  
+  .hidden-down{
+    display: none;
+  }
+}
+
+@include medium-up{
+  .hidden-up{
+    display: none;
+  }
+}

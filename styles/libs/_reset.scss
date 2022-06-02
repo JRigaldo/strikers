@@ -1,0 +1,112 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+td:not([align]),
+th:not([align]) {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html,
+body {
+  position: relative;
+  max-width: 100%;
+  //   overflow-x: hidden;
+}
+
+picture {
+  display: block;
+}
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+button:focus {
+  outline: 0;
+}
+
+input {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.item .item__description .panel-body .field {
+  height: 100%;
+}
+
+.nav__mobile .countrySelectInput {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-left: 10px;
+}
+
+.pill--remove {
+  position: relative;
+  top: 3px;
+}
+
+.searchbar .field {
+  height: 60px;
+  &:before,
+  &:after {
+    bottom: 0;
+  }
+}
+
+figure {
+  position: relative;
+}
+
+div.view-text-container{
+  margin-bottom: 0;
+}

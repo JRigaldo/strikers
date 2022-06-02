@@ -1,0 +1,170 @@
+
+
+@mixin medium-up {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin medium-down {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+
+@mixin custom-responsive-up($custom-responsive: $custom-responsive) {
+  @media only screen and (min-width: #{$custom-responsive}) {
+    @content;
+  }
+}
+
+@mixin custom-responsive-down($custom-responsive: $custom-responsive) {
+  @media only screen and (max-width: #{$custom-responsive}) {
+    @content;
+  }
+}
+
+@mixin custom-responsive-middle($custom-responsive-max: $custom-responsive-max,  $custom-responsive-min: $custom-responsive-min) {
+  @media only screen and (max-width: #{$custom-responsive-max}) and (min-width: #{$custom-responsive-min}) {
+    @content;
+  }
+}
+
+@mixin custom-responsive-($custom-responsive: $custom-responsive) {
+  @media only screen and (max-width: #{$custom-responsive}) {
+    @content;
+  }
+}
+
+
+
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin flex-end{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin align-center {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+@mixin transform($transform) {
+  -ms-transform: $transform;
+  -webkit-transform: $transform;
+  -o-transform: $transform;
+  -moz-transform: $transform;
+  transform: $transform;
+}
+
+@mixin shadow {
+  -webkit-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.4); 
+  box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.4);
+}
+
+@mixin shadow-hover{
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45); 
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
+}
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    zoom: 1;
+    clear: both;
+  }
+}
+
+@mixin icon($width-a: 30px, $height-a: 30px, $width-icon: 20px, $height-icon: 20px, $color-icon: #ffffff, $color-hover: #1696f1) {
+  position: relative;
+  display: block;
+  width: $width-a;
+  height: $height-a;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translateX(-50%) translateY(-50%));
+    display: block;
+    width: $width-icon;
+    height: $height-icon;
+    fill: $color-icon;
+    transition-duration: 300ms;
+  }
+
+  &:hover {
+    svg {
+      fill: $color-hover;
+    }
+  }
+}
+
+@mixin ratio {
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--ratio, calc(16 / 9))));
+  }
+
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@mixin no-select{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

@@ -1,0 +1,289 @@
+/** ------- HEADER GLOBAL ------- **/
+
+.header__global.header__global--dark {
+    background-color: var(--dark, #000000);
+}
+
+.header__global.header__global--primary {
+    background-color: var(--theme-primary, #2195f2);
+    li a {
+        color: var(--white, #ffffff);
+        &:hover {
+            color: var(--theme-secondary, #2195f2);
+        }
+    }
+    .active-link {
+        &:hover {
+            position: relative;
+            &:before {
+              background-color: var(--theme-secondary, #2195f2);
+            }
+        }
+    }
+}
+
+.header-height-80{
+  height: 80px
+}
+
+.header-height-60{
+  height: 60px;
+}
+
+.header-relative{
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.header__global {
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+
+/** ------- NAVIGATION BAR ------- **/ 
+
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar--absolute {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+
+.absolute-left {
+  left: 0;
+}
+
+.absolute-center {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.absolute-right {
+  right: 0;
+}
+
+/** ------- HEADER MOBILE ------- **/ 
+.menu-mobile {
+  position: relative;
+  padding: 10px;
+  background-color: rgba(#ffffff, 0.2);
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/** ------- HEADER MENU ------- **/
+
+.menu__global_icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  height: 60px;
+  cursor: pointer;
+
+  .icon--container {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    height: 100%;
+
+    span {
+      color: var(--gray-dark, #aaaaaa);
+      transition-duration: 0.3s;
+      display: none;
+    }
+
+    svg {
+      stroke: var(--dark, #000000);
+      transition-duration: 0.3s;
+    }
+
+    &:hover {
+      span {
+        color: var(--theme-secondary, #1696f1);
+      }
+
+      svg {
+        stroke: var(--theme-secondary, #1696f1);
+      }
+    }
+  }
+
+  .menu__global--icon {
+    @include icon(50px, 50px, 20px, 20px, #ffffff, #1696f1);
+  }
+}
+
+.menu-mobile .header__logo{
+  width: 160px;
+  margin: 0 auto;
+}
+
+.navbar--button{
+  cursor: pointer;
+}
+
+
+/** ------- STANDARD ------- **/
+.header--logo {
+  cursor: pointer;
+  display: flex;
+  max-width: 220px;
+  max-height: 80px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.header--logo img{
+  height: 100%;
+  width: auto;
+  max-height: 55px;
+  padding: 5px;
+  max-width: 220px;
+}
+
+.header__global nav li {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.header__global nav ul li a {
+  transition: all 0.3s ease 0s;
+  // color: var(--white, #ffffff);
+  // text-shadow: 0.5px 0.5px var(--gray, #ffffff);
+  white-space: nowrap;
+  color: var(--theme-secondary, #1696f1);
+  &:hover {
+    color: var(--theme-primary, #1696f1);
+    text-decoration: none;
+  }
+}
+
+// .active-link {
+//   position: relative;
+
+//   &:after {
+//     position: absolute;
+//     content: "";
+//     left: 3px;
+//     right: 3px;
+//     bottom: -10px;
+//     border-bottom: 5px solid var(--theme-primary, #000);
+//     text-decoration: none;
+//   }
+// }
+
+/** ------- HEADER RIGHT NAV ------- **/
+
+.nav--end{
+  margin: 20px;
+  font-size: 0.88rem;
+}
+
+.nav--select {
+  position: relative;
+  color: var(--white, #ffffff);
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  transition-duration: 0.3s;
+  &:hover{
+    color: var(--theme-primary, #1696f1);
+    font-weight: 500;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 2px;
+    top: 50%;
+    left: -0.5rem;
+    transform: translateY(-50%);
+    background-color: var(--white, #ffffff);
+    ;
+  }
+
+  &:first-child:before {
+    display: none;
+  }
+
+  .menu-triangle {
+    @include medium-down{
+      background: url("../../../public/images/global/menu-triangle-black.svg") center right no-repeat;
+    }
+  }
+}
+
+.link--connexion{
+  text-transform: uppercase;
+  color: var(--white, #ffffff);
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  &:hover{
+    color: var(--theme-secondary, #1696f1);
+  }
+}
+
+.select--current{
+  cursor: pointer;
+}
+
+.menu-mobile--icon-left{
+  width: 30px;
+  img{
+    width: 30px;
+  }
+}
+
+/** ------- NAVBAR MORPHING DESKTOP AND MOBILE ------- **/ 
+
+.navbar--morphing{
+  display: flex;
+}
+
+.navbar--morphing-logo--big{
+  width: 165px;
+}
+
+.navbar--morphing-logo--small{
+  width: 40px;
+}
+
+.navbar--morphing .navbar--button-icon{
+  width: 30px;
+}
+
+@include medium-down{
+  .navbar--morphing .navbar--morphing-logo--big{
+    display: none;
+  }
+
+  .navbar--morphing{
+    .col-left {
+      width: 60px;
+    }
+
+    .col-right {
+      width: 50px;
+    }
+
+    .col-center {
+      width: calc(100% - 110px);
+    }
+  }
+}
+
+@include medium-up{
+  .navbar--morphing .navbar--morphing-logo--small{
+    display: none;
+  }
+}
