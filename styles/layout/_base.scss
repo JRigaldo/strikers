@@ -1,0 +1,17 @@
+body{
+  font-family: var(--theme-font-family);
+  font-size: var(--font-size-base);
+}
+
+h1, h2, h3, h4{
+  font-family: var(--theme-font-title);
+}
+
+a{
+  color: var(--theme-secondary);
+  font-family: var(--theme-font-title);
+  transition-duration: 300ms;
+  &:hover{
+    color: var(--theme-primary);
+  }
+}

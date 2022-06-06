@@ -1,0 +1,121 @@
+.section__date{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  color: var(--theme-secondary);
+  font-size: 1.5rem;
+}
+
+%section__banner{
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-top: 30%;
+}
+
+section__banner-main{
+  background-image: url("../images/banners/striker-banner-main.png");
+  @extend %section__banner;
+}
+
+.section__banner-signin{
+  background-image: url("../images/banners/striker-banner-signin.png");
+  @extend %section__banner;
+}
+
+.article{
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+
+  min-width: 300px;
+  max-width: 320px;
+  margin: 0.5rem 0.5rem 2rem 0.5rem;
+  @include shadow;
+  cursor: pointer;
+  transition-duration: 300ms;
+
+  &:hover{
+    @include shadow-hover;
+  }
+}
+
+article:hover .article__title{
+  background-color: var(--theme-secondary);
+  color: white;
+}
+
+.article__category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.article__category span{
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  background-color: white;
+  padding: 3px 7px;
+  margin-right: 5px;
+}
+
+.article__image{
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  img{
+    @include absolute-center;
+    width: 120%
+  }
+}
+
+.article__title{
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--gray-100);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  color: var(--theme-primary);
+  font-size: 1rem;
+  transition-duration: 300ms;
+}
+
+.title-date{
+  margin-right: 10px;
+}
+
+.article__content{
+  h2{
+    color: var(--gray-400);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  p{
+    margin: 5px 0;
+  }
+}
+
+.article__footer{
+  margin: 10px 5px 15px 5px;
+}
+
+.article__footer button {
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
