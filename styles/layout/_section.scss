@@ -1,4 +1,24 @@
-.section__date{
+.layout{
+  min-height: 70vh;
+}
+
+.layout{
+  h1{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    color: var(--theme-primary);
+  }
+}
+
+.container{
+  display: block;
+  margin: 0 auto;
+  max-width: 280px;
+}
+
+.section__date,
+.section__title{
   display: inline-block;
   text-align: center;
   width: 100%;
@@ -20,6 +40,21 @@ section__banner-main{
 
 .section__banner-signin{
   background-image: url("../images/banners/striker-banner-signin.png");
+  @extend %section__banner;
+}
+
+.section__banner-login{
+  background-image: url("../images/banners/striker-banner-login.png");
+  @extend %section__banner;
+}
+
+.section__banner-dashboard{
+  background-image: url("../images/banners/striker-banner-news.png");
+  @extend %section__banner;
+}
+
+.section__banner-post{
+  background-image: url("../images/banners/striker-banner-participation.png");
   @extend %section__banner;
 }
 

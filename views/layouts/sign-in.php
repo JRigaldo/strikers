@@ -1,11 +1,28 @@
 <main>
-    <section class="section__banner section__banner-signin padding-10">
-        <h1>Sign-in</h1>
-        <form action="#" class="form__container">
+    <section class="section__banner section__banner-signin padding-10 layout">
+        <img class="avatar" src="images/icons/user-icon.svg" alt="">
+        <form action="#" class="form__container" style="margin-bottom: 50px;">
             <div class="field">
                 <div class="field-label">Nom</div>
                 <input class="field-input">
             </div>
+            <div class="field">
+                <div class="field-label">Prénom</div>
+                <input class="field-input">
+            </div>
+            <div class="field">
+                <div class="field-label">Association</div>
+                <input class="field-input">
+            </div>
+            <div class="field">
+                <div class="field-label">Mail</div>
+                <input class="field-input">
+            </div>
+            <div class="field">
+                <div class="field-label">Téléphone</div>
+                <input class="field-input">
+            </div>
+            <button class="flex-center" style="margin-top: 40px;"><a href="#" class="btn-primary">s'inscrire</a></button>
         </form>
     </section>
 </main>

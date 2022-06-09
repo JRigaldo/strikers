@@ -1,10 +1,13 @@
 .form__container{
+  display: block;
+  margin: 0 auto;
   max-width: 280px;
 }
 
 /** ------- FIELD INPUT ------- **/
 .field {
   position: relative;
+  margin: 1.5rem 0;
 }
 
 .field:after,
@@ -57,7 +60,7 @@
   transition: transform 0.3s;
   transform-origin: 0 50%;
   z-index: 10;
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   margin-left: 10px;
 }
 
@@ -163,7 +166,6 @@ input.field-inline-input {
 .field-message {
   position: relative;
   min-height: 72px;
-  // padding: 16px 0 0 0;
 }
 
 .field-label-message {
@@ -177,7 +179,7 @@ input.field-inline-input {
   transform: translateY(35px);
   transition: transform 0.3s;
   transform-origin: 0 50%;
-  color: var(--theme-primary);
+  color: var(--theme-secondary);
   margin-left: 10px;
 }
 
@@ -189,7 +191,8 @@ textarea.field-textarea {
   width: 100%;
   min-height: 150px;
   font-size: 16px;
-  border: 1px solid var(--gray-300, #9E9E9E);
+  @include shadow;
+  border: none;
   border-radius: 5px;
   resize: none;
   padding: 0.5rem;
@@ -227,4 +230,21 @@ textarea.field-textarea:before {
   bottom: -7px;
   left: 0;
   color: var(--theme-secondary);
+}
+
+/** ------- FIELD IMAGE ------- **/
+
+.field-image-label{
+  @include flex-center;
+  button{
+    position: relative;
+    color: var(--theme-secondary);
+    font-family: var(--theme-font-title);
+    input{
+      @include absolute-center;
+      width: 180px;
+      height: 30px;
+      opacity: 0;
+    }
+  }
 }

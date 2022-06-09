@@ -21,3 +21,30 @@
     width: 17px;
   }
 }
+
+.btn-primary{
+  padding: 5px 12px;
+  border-radius: 20px;
+  @extend %shadow;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: var(--theme-secondary);
+  color: white;
+  min-width: 130px;
+}
+
+.btn-secondary{
+  padding: 5px 12px;
+  border-radius: 20px;
+  @extend %shadow;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.layout .avatar{
+  display: block;
+  width: 70px;
+  margin: 0 auto;
+}
