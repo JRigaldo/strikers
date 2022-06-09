@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <title><?= $title ?? "L'agenda des manifs'" ?></title>
 </head>
 <body>
 <header class="header-relative header-height-60">
@@ -49,6 +50,7 @@
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../js/form.js"></script>
+<p><?= round(1000 * microtime(true) - DEBUG_TIME) ?></p>
 </body>
 </html>
 

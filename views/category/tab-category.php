@@ -1,3 +1,4 @@
+<?php $title="Backoffice des catégories"; ?>
 <main>
     <section class="padding-top-30 layout">
         <h1>Ajoutez des catégories</h1>

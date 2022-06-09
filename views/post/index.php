@@ -1,3 +1,4 @@
+<?php $title="L'agenda des manifestions"; ?>
 <main>
     <section class="section__banner section__banner-main padding-10">
         <a href="#"><h4 class="section__date">Juillet</h4></a>

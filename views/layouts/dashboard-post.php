@@ -1,3 +1,4 @@
+<?php $title="Backoffice de publication"; ?>
 <main>
     <section class="padding-10 layout">
         <h1>Inscrivez une manifestation</h1>

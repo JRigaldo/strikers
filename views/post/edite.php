@@ -1,3 +1,4 @@
+<?php $title='Edition'; ?>
 <main>
     <section class="padding-10 layout">
         <h1>Agendez les grèves à venir</h1>

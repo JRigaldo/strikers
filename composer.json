@@ -5,7 +5,15 @@
         }
     },
     "require": {
-        "altorouter/altorouter": "^1.2.0",
-        "components/jquery": "1.9.*"
+        "altorouter/altorouter": "^2.0.0",
+        "components/jquery": "1.9.*",
+        "symfony/var-dumper": "^6.1",
+        "filp/whoops": "^2.14",
+        "fzaninotto/faker": "^1.5"
+    },
+    "config": {
+        "allow-plugins": {
+            "robloach/component-installer": true
+        }
     }
 }

@@ -86,6 +86,7 @@ article:hover .article__title{
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 10;
 }
 
 .article__category span{
@@ -145,6 +146,9 @@ article:hover .article__title{
   padding: 0;
 }
 
+.post{
+  position: relative;
+}
 
 
 

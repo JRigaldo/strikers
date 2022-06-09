@@ -894,7 +894,8 @@ article:hover .article__title {
 .article__category {
   position: absolute;
   top: 10px;
-  left: 10px; }
+  left: 10px;
+  z-index: 10; }
 
 .article__category span {
   display: inline-block;
@@ -944,6 +945,9 @@ article:hover .article__title {
 
 .article__footer button {
   padding: 0; }
+
+.post {
+  position: relative; }
 
 .article__footer--link {
   color: blue;

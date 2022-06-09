@@ -1,3 +1,4 @@
+<?php $title="Backoffice des publications"; ?>
 <main>
     <section class="padding-top-30 layout">
         <h1>Agendez les grèves à venir</h1>

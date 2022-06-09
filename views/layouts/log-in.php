@@ -1,3 +1,4 @@
+<?php $title='Page de connexion'; ?>
 <main>
     <section class="section__banner section__banner-login padding-10 layout">
         <img class="avatar" src="images/icons/user-icon.svg" alt="">
