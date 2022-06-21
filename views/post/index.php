@@ -1,12 +1,13 @@
 <?php $title="L'agenda des manifestions";
 
 use \App\Model\Post;
+use \App\Connection;
+use \App\URL;
 
-$pdo = new PDO('mysql:dbname=strikerblog;host=127.0.0.1', 'root', 'root', [
-PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
+$pdo = Connection::getPDO();
 
-$currentPage = (int)($_GET['page'] ?? 1) ?: 1;
+
+$currentPage = URL::getInt('page', 1);
 if($currentPage <= 0){
     throw new Exception('Numéro de page invalide');
 }
@@ -51,4 +52,16 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
             <?php endforeach; ?>
         </div>
     </section>
+    <div class="btn-pages--container">
+        <?php if($currentPage > 1): ?>
+        <?php
+            $link = $router->url('blog');
+            if($currentPage > 2) $link . '?page=' . ($currentPage - 1);
+        ?>
+        <button class="btn-icon-primary"><a href="<?= $link ?>"><img src="/images/icons/arrow_back.svg" alt=""></a></button>
+        <?php endif; ?>
+        <?php if($currentPage < $pages): ?>
+            <button class="btn-icon-primary"><a href="<?= $router->url('blog') ?>?page=<?= $currentPage + 1 ?>"><img src="/images/icons/arrow_forward.svg" alt=""></a></button>
+        <?php endif; ?>
+    </div>
 </main>

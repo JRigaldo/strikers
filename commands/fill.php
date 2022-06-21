@@ -1,12 +1,11 @@
 <?php
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
+use \App\Connection;
 
 $faker = Faker\Factory::create('fr_FR');
 
-$pdo = new PDO('mysql:dbname=strikerblog;host=127.0.0.1', 'root', 'root', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
+$pdo = Connection::getPDO();
 
 //var_dump($faker->sentence($nbWords = 3, $variableNbWords = true));
 
