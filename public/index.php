@@ -28,9 +28,6 @@ if(isset($_GET['page']) && $_GET['page'] === '1'){
     exit();
 }
 
-
-
-
 $router = new App\Router(dirname(__DIR__) . '/views');
 
 $router

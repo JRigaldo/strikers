@@ -1,4 +1,8 @@
 <?php $title="Publication"; ?>
+<?php
+    dd($params);
+?>
+?>
 <main>
     <section class="section__banner section__banner-post">
         <a href="#"><h4 class="section__title">Extinction Rebellion</h4></a>
