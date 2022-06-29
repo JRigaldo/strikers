@@ -16,7 +16,6 @@ class Router {
     public function get(string $url,string $view, ?string $name = null): self
     {
         $this->router->map('GET', $url, $view, $name);
-        //var_dump($this);
         return $this;
     }
 

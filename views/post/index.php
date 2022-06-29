@@ -7,7 +7,7 @@ use \App\URL;
 $pdo = Connection::getPDO();
 
 
-$currentPage = URL::getInt('page', 1);
+$currentPage = URL::getPositiveInt('page', 1);
 if($currentPage <= 0){
     throw new Exception('Numéro de page invalide');
 }
@@ -30,11 +30,11 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
             <?php foreach ($posts as $post): ?>
             <article class="article">
                 <div class="article__category">
-                    <span>egypte</span><span>caire</span>
+                    <a href="#">egypte</a><a href="#">caire</a>
                 </div>
                 <a href="<?= $router->url('post', ['id'=> $post->getID(), 'slug'=> $post->getSlug()]) ?>">
                     <div class="article__image">
-                        <img src="images/pictures/image-1.jpg" alt="">
+                        <img src="/images/pictures/image-1.jpg" alt="">
                     </div>
                     <h1 class="article__title"><span class="title-date"><?= $post->getDateTime()->format('d.m.Y') ?></span>Sur la place Tarir</h1>
                     <div class="article__content padding-5">
@@ -45,7 +45,7 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
                 <div class="article__footer flex-center space-between">
                     <button><a href="#" class="article__footer--link">https://xrlausanne.ch</a></button>
                     <button><a href="#" class="article__footer--btn">Participer</a></button>
-                    <button><a href="#" class="article__footer--btn--icon"><img src="images/icons/share-icon.svg"
+                    <button><a href="#" class="article__footer--btn--icon"><img src="/images/icons/share-icon.svg"
                                                                                 alt=""></a></button>
                 </div>
             </article>
