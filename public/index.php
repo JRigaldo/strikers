@@ -32,7 +32,8 @@ $router = new App\Router(dirname(__DIR__) . '/views');
 
 $router
     ->get('/', 'post/index', 'blog')
-    ->get('/blog/category', 'category/show', 'category')
+    ->get('/blog/category/[*:slug]-[i:id]', 'category/category', 'category')
+    ->get('/post/[*:slug]-[i:id]', 'post/post', 'post')
     ->get('/sign-in', 'layouts/sign-in', 'sign-in')
     ->get('/log-in', 'layouts/log-in', 'log-in')
     ->get('/dashboard', 'layouts/dashboard', 'dashboard')
@@ -40,6 +41,4 @@ $router
     ->get('/tab-category', 'category/tab-category', 'tab-category')
     ->get('/tab-post', 'post/tab-post', 'tab-post')
     ->get('/edite', 'post/edite', 'edite')
-    ->get('/post/[*:slug]-[i:id]', 'post/post', 'post')
-    //->get('/post', 'post/post', 'post')
     ->run();

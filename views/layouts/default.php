@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
-    <title><?= $title ?? "L'agenda des manifs'" ?></title>
+    <title><?= e($title) ?? "L'agenda des manifs'" ?></title>
 </head>
 <body>
 <header class="header-relative header-height-60">

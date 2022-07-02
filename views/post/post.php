@@ -31,15 +31,16 @@
 ?>
 <main>
     <section class="section__banner section__banner-post">
-        <a href="#"><h4 class="section__title"><?= e($post->getName()) ?></h4></a>
+        <a href="#"><h4 class="section__title"></h4></a>
             <article class="post">
                 <div class="article__category">
                     <?php foreach ($categories as $category): ?>
-                        <a href="#"><?= $category->getName() ?></a>
+                        <?php $category_url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]) ?>
+                        <a href="<?= $category_url ?>"><?= $category->getName() ?></a>
                     <?php endforeach; ?>
                 </div>
                 <div class="article__image">
-                    <img src="images/pictures/image-1.jpg" alt="">
+                    <img src="/images/pictures/image-1.jpg" alt="">
                 </div>
                 <h1 class="article__title"><span class="title-date"><?= $post->getDateTime()->format('d.m.Y') ?></span>Sur la place Tarir</h1>
                 <div class="article__content padding-5">
