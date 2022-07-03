@@ -2,25 +2,17 @@
 
 use \App\Model\Post;
 use \App\Connection;
-use \App\URL;
+use \App\PaginatedQuery;
 
 $pdo = Connection::getPDO();
 
+$paginatedQuery = new PaginatedQuery(
+    "SELECT * FROM post ORDER BY created_at",
+    "SELECT COUNT(id) from post"
+);
 
-$currentPage = URL::getPositiveInt('page', 1);
-if($currentPage <= 0){
-    throw new Exception('Numéro de page invalide');
-}
-$count = (int)$pdo->query("SELECT COUNT(id) from post")->fetch(PDO::FETCH_NUM)[0];
-$perPage = 12;
-$pages = ceil($count / $perPage);
-if($currentPage > $pages){
-    throw new Exception("Cette page n'existe pas");
-}
-$offset = $perPage * ($currentPage -1);
-$query = $pdo->query("SELECT * FROM post ORDER BY created_at DESC LIMIT $perPage OFFSET $offset");
-$posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
-
+$posts = $paginatedQuery->getItems(Post::class);
+$link = $router->url('blog');
 
 ?>
 <main>
@@ -33,15 +25,7 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
         </div>
     </section>
     <div class="btn-pages--container">
-        <?php if($currentPage > 1): ?>
-        <?php
-            $link = $router->url('blog');
-            if($currentPage > 2) $link . '?page=' . ($currentPage - 1);
-        ?>
-        <button class="btn-icon-primary"><a href="<?= $link ?>"><img src="/images/icons/arrow_back.svg" alt=""></a></button>
-        <?php endif; ?>
-        <?php if($currentPage < $pages): ?>
-            <button class="btn-icon-primary"><a href="<?= $router->url('blog') ?>?page=<?= $currentPage + 1 ?>"><img src="/images/icons/arrow_forward.svg" alt=""></a></button>
-        <?php endif; ?>
+        <?= $paginatedQuery->previousLink($link); ?>
+        <?= $paginatedQuery->nextLink($link); ?>
     </div>
 </main>

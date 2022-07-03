@@ -25,19 +25,13 @@ if($category->getSlug() !== $slug){
 }
 $title = "Catégorie {$category->getName()}";
 
-/*$currentPage = URL::getPositiveInt('page', 1);
-if($currentPage <= 0){
-    throw new Exception('Numéro de page invalide');
-}*/
-
 $paginatedQuery = new PaginatedQuery(
     "SELECT p.* FROM post p JOIN post_category pc ON pc.post_id = p.id WHERE pc.category_id = {$category->getID()} ORDER BY created_at",
-    "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$category->getID()}",
-    Post::class
+    "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$category->getID()}"
 );
 
 /* @var Post[] */
-$posts = $paginatedQuery->getItems();
+$posts = $paginatedQuery->getItems(Post::class);
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 
 ?>
