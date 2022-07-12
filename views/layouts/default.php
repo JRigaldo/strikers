@@ -49,7 +49,7 @@
     </ul>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../js/form.js"></script>
+<script src="/js/form.js"></script>
 <p><?= round(1000 * microtime(true) - DEBUG_TIME) ?></p>
 </body>
 </html>

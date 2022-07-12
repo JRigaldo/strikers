@@ -1,17 +1,14 @@
 <?php $title="L'agenda des manifestions";
 
-use \App\Model\Post;
-use \App\Connection;
-use \App\PaginatedQuery;
+use App\Connection;
+use App\Model\Post;
+use App\PaginatedQuery;
+use App\Table\PostTable;
+use App\Model\Category;
 
 $pdo = Connection::getPDO();
+[$posts, $pagination] = (new PostTable($pdo))->findPaginated();
 
-$paginatedQuery = new PaginatedQuery(
-    "SELECT * FROM post ORDER BY created_at",
-    "SELECT COUNT(id) from post"
-);
-
-$posts = $paginatedQuery->getItems(Post::class);
 $link = $router->url('blog');
 
 ?>
@@ -20,12 +17,13 @@ $link = $router->url('blog');
         <a href="#"><h4 class="section__date">Juillet</h4></a>
         <div class="row">
             <?php foreach ($posts as $post): ?>
+
                 <?php require 'card.php' ?>
             <?php endforeach; ?>
         </div>
     </section>
     <div class="btn-pages--container">
-        <?= $paginatedQuery->previousLink($link); ?>
-        <?= $paginatedQuery->nextLink($link); ?>
+        <?= $pagination->previousLink($link); ?>
+        <?= $pagination->nextLink($link); ?>
     </div>
 </main>

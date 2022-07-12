@@ -18,6 +18,23 @@ class Post {
         return $this->name;
     }
 
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+        return $this;
+    }
+
     public function getFormatedContent(): ?string
     {
         return nl2br(e($this->content));
@@ -31,9 +48,15 @@ class Post {
         return nl2br(htmlentities(Text::excerpt($this->content, 60)));
     }
 
-    public function getDateTime(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return new \DateTime($this->created_at);
+    }
+
+    public function setCreatedAt(string $date): self
+    {
+        $this->created_at = $date;
+        return $this;
     }
 
     public function getID(): ?int
@@ -44,6 +67,24 @@ class Post {
     public function getSlug(): ?string
     {
         return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /* @return Category[] */
+    public function getCategories(): array
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): void
+    {
+        $this->categories[] = $category;
+        $category->setPost($this);
     }
 
 }

@@ -1,5 +1,5 @@
 ul.tab{
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
   li{
     position: relative;
     margin: 1em 0;
@@ -13,7 +13,7 @@ ul.tab{
   li span{
     position: absolute;
     top: 50%;
-    left: -0.7rem;
+    left: -1.9rem;
     transform: translateY(-50%);
     font-size: 0.7rem;
   }
@@ -34,7 +34,8 @@ ul.tab{
       height: 100%;
       width: 100%;
     }
-    button a{
+    button a,
+    form button{
       @include flex-center;
       img{
         width: 22px;

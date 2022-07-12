@@ -7,7 +7,7 @@
 /** ------- FIELD INPUT ------- **/
 .field {
   position: relative;
-  margin: 1.5rem 0;
+  margin: 2.5rem 0;
 }
 
 .field:after,
@@ -230,6 +230,10 @@ textarea.field-textarea:before {
   bottom: -7px;
   left: 0;
   color: var(--theme-secondary);
+}
+
+input.field-input.is-invalid{
+  background-color: rgba(255, 209, 209, 0.5);
 }
 
 /** ------- FIELD IMAGE ------- **/

@@ -1039,7 +1039,7 @@ footer {
 /** ------- FIELD INPUT ------- **/
 .field {
   position: relative;
-  margin: 1.5rem 0; }
+  margin: 2.5rem 0; }
 
 .field:after,
 .field:before {
@@ -1233,6 +1233,9 @@ textarea.field-textarea:before {
   left: 0;
   color: var(--theme-secondary); }
 
+input.field-input.is-invalid {
+  background-color: rgba(255, 209, 209, 0.5); }
+
 /** ------- FIELD IMAGE ------- **/
 .field-image-label {
   display: flex;
@@ -1254,7 +1257,7 @@ textarea.field-textarea:before {
       opacity: 0; }
 
 ul.tab {
-  padding: 0.5rem 0.5rem 0.5rem 1rem; }
+  padding: 0.5rem 0.5rem 0.5rem 2rem; }
   ul.tab li {
     position: relative;
     margin: 1em 0;
@@ -1267,7 +1270,7 @@ ul.tab {
   ul.tab li span {
     position: absolute;
     top: 50%;
-    left: -0.7rem;
+    left: -1.9rem;
     transform: translateY(-50%);
     font-size: 0.7rem; }
   ul.tab li article {
@@ -1283,13 +1286,53 @@ ul.tab {
     ul.tab li article button, ul.tab li article a {
       height: 100%;
       width: 100%; }
-    ul.tab li article button a {
+    ul.tab li article button a,
+    ul.tab li article form button {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 100%; }
-      ul.tab li article button a img {
+      ul.tab li article button a img,
+      ul.tab li article form button img {
         width: 22px; }
+
+.modal {
+  z-index: 10;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 220px;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 9px -1px rgba(0, 0, 0, 0.4); }
+  .modal header {
+    margin-bottom: 20px; }
+
+.modal.modal-succes {
+  background-color: #var --success;
+  color: var(--white); }
+
+.alert {
+  color: var(--white);
+  width: 100%;
+  padding: 1rem; }
+
+.alert-succes {
+  background-color: var(--success); }
+
+.alert-danger {
+  background-color: var(--danger); }
+
+.invalid-feedback {
+  color: var(--danger);
+  position: absolute;
+  bottom: -25px;
+  left: 0; }
 
 /*# sourceMappingURL=index.css.map */

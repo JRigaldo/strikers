@@ -10,7 +10,8 @@
         "components/jquery": "1.9.*",
         "symfony/var-dumper": "^6.1",
         "filp/whoops": "^2.14",
-        "fakerphp/faker": "^1.19"
+        "fakerphp/faker": "^1.19",
+        "vlucas/valitron": "^1.4"
     },
     "config": {
         "allow-plugins": {
