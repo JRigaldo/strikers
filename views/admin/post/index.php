@@ -22,7 +22,7 @@ $link = $router->url('admin_posts');
     <?php endif; ?>
     <section class="padding-top-30 layout">
         <h1>Agendez les grèves à venir</h1>
-        <button class="flex-center" style="margin-top: 40px;"><a href="#" class="btn-primary">Ajouter</a></button>
+        <button class="flex-center" style="margin-top: 40px;"><a href="<?= $router->url('admin_post_new') ?>" class="btn-primary">Nouveau</a></button>
         <ul class="tab">
             <?php foreach ($posts as $post): ?>
                 <li>

@@ -12,9 +12,23 @@ final class PostTable extends Table{
     protected $table = 'post';
     protected $class = Post::class;
 
+    public function create(Post $post): void
+    {
+        $query = $this->pdo->prepare("INSERT INTO {$this->table} SET name = :name, slug = :slug, content = :content, created_at = :created");
+        $ok = $query->execute([
+            'name' => $post->getName(),
+            'slug' => $post->getSlug(),
+            'content' => $post->getContent(),
+            'created' => $post->getCreatedAt()->format('Y-m-d H:I:s')
+        ]);
+        if($ok === false){
+            throw new \Exception("Impossible de créer l'enregistrement dans la table {$this->table}");
+        }
+        $post->setID($this->pdo->lastInsertId());
+    }
+
     public function update(Post $post): void
     {
-        //dd($post->getCreatedAt());
         $query = $this->pdo->prepare("UPDATE {$this->table} SET name = :name, slug = :slug, content = :content, created_at = :created WHERE id = :id");
         $ok = $query->execute([
             'id' => $post->getID(),
@@ -24,7 +38,7 @@ final class PostTable extends Table{
             'created' => $post->getCreatedAt()->format('Y-m-d H:I:s')
         ]);
         if($ok === false){
-            throw new \Exception("Impossible de supprimer l'enregistrement {$post->getID()} dans la table {$this->table}");
+            throw new \Exception("Impossible de modifier l'enregistrement {$post->getID()} dans la table {$this->table}");
         }
     }
 

@@ -33,4 +33,24 @@ abstract class Table {
         return $result;
     }
 
+    /*
+     *
+     * Grafikart CHAP 59 12MIN
+     * VERIFIE SI UNE VALEUR EXISTE DANS LA TABLE
+     * @params string $field
+     * @params string valeur associée au champ
+     */
+    public function exists(string $field, $value, ?int $except = null): bool
+    {
+        $sql = "SELECT COUNT(id) FROM {$this->table} WHERE $field = ?";
+        $params = [$value];
+        if($except !== null){
+            $sql .= " AND id != ?";
+            $params[] = $except;
+        }
+        $query = $this->pdo->prepare($sql);
+        $query->execute($params);
+        return (int)$query->fetch(PDO::FETCH_NUM)[0] > 0;
+    }
+
 }

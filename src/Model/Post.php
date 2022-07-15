@@ -9,6 +9,7 @@ class Post {
     private $id;
     private $name;
     private $content;
+    private $slug;
     private $created_at;
 
     private $categories = [];
@@ -62,6 +63,12 @@ class Post {
     public function getID(): ?int
     {
         return $this->id;
+    }
+
+    public function setID(int $id): self
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getSlug(): ?string

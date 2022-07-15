@@ -1,40 +1,41 @@
-<?php $title='Edition'; ?>
+<?php
+
+use App\Connection;
+use App\Table\PostTable;
+use App\HTML\Form;
+use App\Validators\PostValidators;
+use App\ObjectHelper;
+use App\Model\Post;
+
+$errors = [];
+$post = new Post();
+$post->setCreatedAt(date('Y-m-d H:i:s'));
+
+if(!empty($_POST)){
+    $pdo = Connection::getPDO();
+    $postTable = new PostTable($pdo);
+    $v = new PostValidators($_POST, $postTable, $post->getID());
+    ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at'] );
+    if($v->validate()){
+        $postTable->create($post);
+        header('Location:' . router->url('admin_post', ['id' => $post->getID()], '?created=1'));
+        exit();
+    }else{
+        $errors = $v->errors();
+    }
+}
+
+$form = new Form($post, $errors);
+
+?>
 <main>
+    <?php if(!empty($errors)): ?>
+        <div class="alert alert-danger">
+            L'article n'a pas pu être enregistré, merci de corriger vos erreurs
+        </div>
+    <?php endif ?>
     <section class="padding-10 layout">
-        <h1>Agendez les grèves à venir</h1>
-        <form action="#" class="form__container" style="margin-bottom: 50px;">
-            <div class="field">
-                <div class="field-label">Titre de l'événement</div>
-                <input class="field-input">
-            </div>
-            <div class="field">
-                <div class="field-label">Date</div>
-                <input class="field-input">
-            </div>
-            <div class="field">
-                <div class="field-label">Association</div>
-                <input class="field-input">
-            </div>
-            <div class="field">
-                <div class="field-label">Mail</div>
-                <input class="field-input">
-            </div>
-            <div class="field">
-                <div class="field-label">Lieu du site</div>
-                <input class="field-input">
-            </div>
-            <div class="field-message">
-                <div class="field-label-message">Texte</div>
-                <textarea class="field-textarea"></textarea>
-            </div>
-            <div class="field">
-                <div class="field-label">Catégorie</div>
-                <input class="field-input">
-            </div>
-            <div class="field-image-label">
-                <button class="btn-secondary">Choisir un fichier <img src="images/icons/upload-icon.svg" alt=""><input class="field-image" type="file" id="img" name="img" accept="image/*"></button>
-            </div>
-            <button class="flex-center" style="margin-top: 40px;"><a href="#" class="btn-primary">Poster</a></button>
-        </form>
+        <h1>Créer un article</h1>
+        <?php require("_form.php"); ?>
     </section>
 </main>
