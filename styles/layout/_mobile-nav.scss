@@ -1,0 +1,164 @@
+.menu-mobile {
+  display: block;
+}
+
+.has-menu .site-cache {
+  display: block;
+}
+
+.site-cache {
+  display: none;
+}
+
+.has-menu .site-cache {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.header-main .close {
+  display: none;
+}
+
+.has-menu .header-main .close {
+  display: block;
+}
+
+.has-menu .hamburger {
+  display: none;
+}
+
+.has-menu aside.nav__mobile {
+  right: 0;
+}
+
+aside.nav__mobile {
+  background-color: var(--white);
+}
+
+aside.nav__mobile{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.nav__mobile {
+  position: fixed;
+  top: 0;
+  right: -#{$responsive-menu-width};
+  bottom: 0;
+  z-index: 100;
+  width: $responsive-menu-width;
+  height: 100vh;
+  background-color: var(--gray);
+  transition-duration: 0.3s;
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  nav ul li a,
+  nav ul li span {
+    padding-left: 15px;
+    margin: 10px 0;
+    color: var(--gray-dark);
+    text-transform: uppercase;
+    position: relative;
+
+    svg {
+      color: var(--gray-dark);
+      transition-duration: 300ms;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: var(--theme-secondary);
+
+      &:after {
+        position: absolute;
+        content: "";
+        left: 5px;
+        width: 60px;
+        bottom: -5px;
+        border-bottom: 5px solid var(--theme-primary);
+      }
+    }
+
+    &:hover svg,
+    &:focus svg,
+    &:active svg {
+      fill: var(--theme-secondary);
+    }
+  }
+}
+
+.nav__social__mobile {
+  position: relative;
+  display: block;
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  height: 60px;
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+
+    li {
+      width: 100%;
+      height: 100%;
+
+      a {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: var(--theme-primary);
+        transition-duration: 0.3s;
+
+        svg {
+          @include absolute-center;
+          width: 20px;
+          height: 20px;
+
+          g path {
+            fill: var(--white);
+          }
+        }
+
+        &:hover {
+          background-color: var(--theme-secondary);
+        }
+
+        &:hover svg g path {
+          fill: var(--gray-dark);
+        }
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          &:after {
+            position: relative;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

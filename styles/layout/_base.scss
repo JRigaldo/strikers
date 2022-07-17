@@ -15,3 +15,7 @@ a{
     color: var(--theme-primary);
   }
 }
+
+body.has-menu {
+  overflow-y: hidden;
+}

@@ -5,3 +5,47 @@
 .header-height-60{
   height: 60px;
 }
+
+
+.header-menu__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  height: 60px;
+  cursor: pointer;
+}
+
+.aside-menu__icon{
+  position: relative;
+  height: 60px;
+  cursor: pointer;
+}
+
+.icon--container {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  height: 100%;
+
+  span {
+    color: var(--gray-dark);
+    transition-duration: 0.3s;
+  }
+  svg {
+    stroke: var(--gray-dark);
+    transition-duration: 0.3s;
+  }
+  &:hover {
+    span {
+      color: var(--theme-secondary);
+    }
+    svg {
+      stroke: var(--theme-secondary);
+    }
+  }
+}
+
+.w50--icon {
+  @include icon(50px, 50px, 20px, 20px, var(--white), var(--theme-secondary));
+}

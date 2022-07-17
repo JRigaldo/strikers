@@ -34,10 +34,18 @@ $router
     ->get('/', 'post/index', 'blog')
     ->get('/blog/category/[*:slug]-[i:id]', 'category/category', 'category')
     ->get('/post/[*:slug]-[i:id]', 'post/post', 'post')
+    // ADMIN
+        // Gestion des articles
     ->get('/admin', 'admin/post/index', 'admin_posts')
     ->match('/admin/post/[i:id]', 'admin/post/edit', 'admin_post')
     ->post('/admin/post/[i:id]/delete', 'admin/post/delete', 'admin_post_delete')
     ->match('/admin/post/new', 'admin/post/new', 'admin_post_new')
+    // ADMIN
+        // Gestion des categories
+    ->get('/admin/categories', 'admin/category/index', 'admin_categories')
+    ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category')
+    ->post('/admin/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
+    ->match('/admin/category/new', 'admin/category/new', 'admin_category_new')
     //->get('/admin/tab-category', 'admin/tab-category', 'tab-category')
     //->get('/sign-in', 'admin/sign-in', 'sign-in')
     //->get('/log-in', 'admin/log-in', 'log-in')
