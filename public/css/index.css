@@ -1459,17 +1459,6 @@ aside.nav__mobile {
     .nav__mobile nav ul li span:active,
     .nav__mobile nav ul li span.active {
       color: var(--theme-secondary); }
-      .nav__mobile nav ul li a:hover:after, .nav__mobile nav ul li a:focus:after, .nav__mobile nav ul li a:active:after, .nav__mobile nav ul li a.active:after,
-      .nav__mobile nav ul li span:hover:after,
-      .nav__mobile nav ul li span:focus:after,
-      .nav__mobile nav ul li span:active:after,
-      .nav__mobile nav ul li span.active:after {
-        position: absolute;
-        content: "";
-        left: 5px;
-        width: 60px;
-        bottom: -5px;
-        border-bottom: 5px solid var(--theme-primary); }
     .nav__mobile nav ul li a:hover svg, .nav__mobile nav ul li a:focus svg, .nav__mobile nav ul li a:active svg,
     .nav__mobile nav ul li span:hover svg,
     .nav__mobile nav ul li span:focus svg,

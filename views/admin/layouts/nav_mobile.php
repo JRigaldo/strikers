@@ -17,8 +17,8 @@
     <div class="block--container">
         <nav>
             <ul>
-                <li><a href="#">Articles</a></li>
-                <li><a href="#">Categories</a></li>
+                <li><a href="<?= $router->url('admin_posts') ?>">Articles</a></li>
+                <li><a href="<?= $router->url('admin_categories') ?>">Categories</a></li>
             </ul>
         </nav>
     </div>

@@ -1,50 +1,56 @@
 <?php
 
 use App\Connection;
-use App\Table\PostTable;
+use App\Table\CategoryTable;
 use App\HTML\Form;
-use App\Validators\PostValidators;
+use App\Validators\CategoryValidators;
 use App\ObjectHelper;
+use App\Auth;
+
+Auth::check();
 
 $pdo = Connection::getPDO();
-
-$postTable = new PostTable($pdo);
-$post = $postTable->find($params['id']);
+$table = new CategoryTable($pdo);
+$item = $table->find($params['id']);
+$fields = ['name', 'slug'];
 $success = false;
 $errors = [];
 
 if(!empty($_POST)){
-    $v = new PostValidators($_POST, $postTable, $post->getID());
-    ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at'] );
+    $v = new CategoryValidators($_POST, $table, $item->getID());
+    ObjectHelper::hydrate($item, $_POST, $fields);
     if($v->validate()){
-        $postTable->update($post);
+        $table->update([
+                'name' => $item->getName(),
+                'slug' => $item->getSlug()
+        ], $item->getID());
         $success = true;
     }else{
         $errors = $v->errors();
     }
 }
 
-$form = new Form($post, $errors);
+$form = new Form($item, $errors);
 
 ?>
 <main>
     <?php if($success): ?>
         <div class="alert alert-succes">
-            L'enregistrement à bien été modifié !
+            La catégorie à bien été modifié !
         </div>
     <?php endif; ?>
     <?php if(isset($_GET['created'])): ?>
         <div class="alert alert-succes">
-            L'article à bien été créé
+            La catégorie à bien été créé
         </div>
     <?php endif; ?>
     <?php if(!empty($errors)): ?>
         <div class="alert alert-danger">
-            L'article n'a pas pu être modifier, merci de corriger vos erreurs
+            La catégorie n'a pas pu être modifier, merci de corriger vos erreurs
         </div>
     <?php endif ?>
     <section class="padding-10 layout">
-        <h1>Editer l'article <?= $params['id'] ?></h1>
+        <h1>Editer la catégorie <?= $params['id'] ?></h1>
         <?php require("_form.php"); ?>
     </section>
 </main>

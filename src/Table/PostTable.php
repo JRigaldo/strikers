@@ -12,34 +12,27 @@ final class PostTable extends Table{
     protected $table = 'post';
     protected $class = Post::class;
 
-    public function create(Post $post): void
+    public function createPost(Post $post): void
     {
-        $query = $this->pdo->prepare("INSERT INTO {$this->table} SET name = :name, slug = :slug, content = :content, created_at = :created");
-        $ok = $query->execute([
+        $id = $this->create([
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'content' => $post->getContent(),
-            'created' => $post->getCreatedAt()->format('Y-m-d H:I:s')
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:I:s')
         ]);
-        if($ok === false){
-            throw new \Exception("Impossible de créer l'enregistrement dans la table {$this->table}");
-        }
-        $post->setID($this->pdo->lastInsertId());
+
+        $post->setID($id);
     }
 
-    public function update(Post $post): void
+    public function updatePost(Post $post): void
     {
-        $query = $this->pdo->prepare("UPDATE {$this->table} SET name = :name, slug = :slug, content = :content, created_at = :created WHERE id = :id");
-        $ok = $query->execute([
+        $this->update([
             'id' => $post->getID(),
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'content' => $post->getContent(),
-            'created' => $post->getCreatedAt()->format('Y-m-d H:I:s')
-        ]);
-        if($ok === false){
-            throw new \Exception("Impossible de modifier l'enregistrement {$post->getID()} dans la table {$this->table}");
-        }
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:I:s')
+        ], $post->getID());
     }
 
     public function delete(int $id): void

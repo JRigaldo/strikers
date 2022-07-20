@@ -34,7 +34,7 @@ class Category {
 
     public function getName(): ?string
     {
-        return e($this->name);
+        return $this->name;
     }
 
     public function setName(string $name): self

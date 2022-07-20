@@ -82,15 +82,6 @@ aside.nav__mobile{
     &:active,
     &.active {
       color: var(--theme-secondary);
-
-      &:after {
-        position: absolute;
-        content: "";
-        left: 5px;
-        width: 60px;
-        bottom: -5px;
-        border-bottom: 5px solid var(--theme-primary);
-      }
     }
 
     &:hover svg,

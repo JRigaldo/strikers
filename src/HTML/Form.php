@@ -15,12 +15,11 @@ class Form {
     public function input(string $key, string $label): string
     {
         $value = $this->getValue($key);
-        $inputClass = '';
-
+        $type = $key === 'password' ? 'password' : 'text';
         return <<<HTML
             <div class="field">
                 <label for="field{$key}" class="field-label">{$label}</label>
-                <input class="field-input {$this->getInputClass($key)}" id="field{$key}" name="{$key}" value="{$value}" required>
+                <input class="field-input {$this->getInputClass($key)}" type="{$type}" id="field{$key}" name="{$key}" value="{$value}">
                 {$this->getErrorFeedBack($key)}
             </div>
 HTML;
@@ -32,7 +31,7 @@ HTML;
         return <<<HTML
             <div class="field-message">
                 <label for="field{$key}" class="field-label-message">{$label}</label>
-                <textarea class="field-textarea {$this->getInputClass($key)}" id="field{$key}" name="{$key}" value="{$value}" required>{$value}</textarea>
+                <textarea class="field-textarea {$this->getInputClass($key)}" id="field{$key}" type="textarea" name="{$key}" value="{$value}" required>{$value}</textarea>
                 {$this->getErrorFeedBack($key)}
             </div>
 HTML;
@@ -63,7 +62,12 @@ HTML;
     private function getErrorFeedBack(string $key): string
     {
         if(isset($this->errors[$key])){
-            return $invalidFeedBack = '<div class="invalid-feedback">' . implode('<br>', $this->errors[$key]) . '</div>';
+            if(is_array($this->errors[$key])){
+                $error = implode('<br>', $this->errors[$key]);
+            }else{
+                $error = $this->errors[$key];
+            }
+            return '<div class="invalid-feedback">' . $error . '</div>';
         }
         return '';
     }
