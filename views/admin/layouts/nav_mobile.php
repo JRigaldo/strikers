@@ -19,6 +19,7 @@
             <ul>
                 <li><a href="<?= $router->url('admin_posts') ?>">Articles</a></li>
                 <li><a href="<?= $router->url('admin_categories') ?>">Categories</a></li>
+                <li><form action="<?= $router->url('logout') ?>" method="POST" style="display: inline;"><button type="submit">Déconnexion</button></form></li>
             </ul>
         </nav>
     </div>

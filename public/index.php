@@ -35,6 +35,8 @@ $router
     ->get('/blog/category/[*:slug]-[i:id]', 'category/category', 'category')
     ->get('/post/[*:slug]-[i:id]', 'post/post', 'post')
     ->match('/login', 'auth/login', 'login')
+    ->post('/logout', 'auth/logout', 'logout')
+    ->get('/e404', 'e404', 'e404')
     // ADMIN
         // Gestion des articles
     ->get('/admin', 'admin/post/index', 'admin_posts')
@@ -47,8 +49,4 @@ $router
     ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category')
     ->post('/admin/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
     ->match('/admin/category/new', 'admin/category/new', 'admin_category_new')
-    //->get('/admin/tab-category', 'admin/tab-category', 'tab-category')
-    //->get('/sign-in', 'admin/sign-in', 'sign-in')
-    //->get('/log-in', 'admin/log-in', 'log-in')
-    //->get('/admin', 'admin/dashboard', 'dashboard')
     ->run();

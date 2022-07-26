@@ -18,10 +18,10 @@
         <div style="display: block; height: 100%; width:60px;">
             <a href="#" class="flex-center" style="display: none;"><img src="/images/icons/back-arrow-icon.svg" alt=""></a>
         </div>
-        <a class="header--logo flex-center" href="<?= $router->url('blog') ?>" title="Accueil"
+        <div class="header--logo flex-center"
            style="width:calc(100% - 120px);">
-            <img alt="Logo strikers" src="/images/logos/logo-strikers.svg"/>
-        </a>
+            <a href="<?= $router->url('blog') ?>" title="Accueil"><img alt="Logo strikers" src="/images/logos/logo-strikers.svg"/></a>
+        </div>
         <div style="display: block; height: 100%; width:60px;">
             <a href="<?= $router->url('admin_posts') ?>" class="flex-center"><img src="/images/icons/user-icon.svg"
                                                                                   alt=""></a>

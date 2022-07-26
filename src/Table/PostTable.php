@@ -35,6 +35,15 @@ final class PostTable extends Table{
         ], $post->getID());
     }
 
+    public function attachedCategories(int $id, array $categories)
+    {
+        $this->pdo->exec('DELETE FROM post_category WHERE post_id = ' . $id);
+        $query = $this->pdo->prepare('INSERT INTO post_category SET post_id = ?, category_id = ?');
+        foreach ($categories as $category){
+            $query->execute([$id, $category]);
+        }
+    }
+
     public function delete(int $id): void
     {
         $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");

@@ -65,12 +65,16 @@ aside.nav__mobile{
   }
 
   nav ul li a,
-  nav ul li span {
+  nav ul li span,
+  nav ul li button{
+    display: block;
     padding-left: 15px;
     margin: 10px 0;
     color: var(--gray-dark);
     text-transform: uppercase;
     position: relative;
+    font-family: var(--theme-font-title);
+    padding: 5px 0;
 
     svg {
       color: var(--gray-dark);

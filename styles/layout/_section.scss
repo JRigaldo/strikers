@@ -1,3 +1,22 @@
+h1{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+
+
+div.error-404--container{
+  position: relative;
+  min-height: 80vh;
+  width: 100%;
+  @include flex-center;
+}
+
+h1.error-404-title{
+  color: var(--danger);
+}
+
 .layout{
   min-height: 70vh;
 }
@@ -76,6 +95,7 @@ section__banner-main{
     @include shadow-hover;
   }
   a{
+    display: block;
     color: var(--gray-dark);
     font-family: var(--theme-font-family);
   }
@@ -102,6 +122,11 @@ article:hover .article__title{
   padding: 3px 7px;
   margin-right: 5px;
   margin-bottom: 5px;
+  transition-duration: 300ms;
+  &:hover{
+    background-color: var(--theme-primary);
+    color: var(--white);
+  }
 }
 
 .article__image{

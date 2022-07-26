@@ -3,6 +3,7 @@
 namespace App\Table;
 
 use App\Model\Category;
+use App\Table\PostTable;
 use \PDO;
 use App\Table\Exception\NotFoundException;
 
@@ -17,6 +18,7 @@ final class CategoryTable extends Table {
         $postsByID = [];
 
         foreach ($posts as $post) {
+            $post->setCategories([]);
             $postsByID[$post->getID()] = $post;
         }
 
@@ -34,6 +36,16 @@ final class CategoryTable extends Table {
     {
         return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY id DESC");
 
+    }
+
+    public function list(): array
+    {
+        $categories = $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
+        $results = [];
+        foreach ($categories as $category){
+            $results[$category->getID()] = $category->getName();
+        }
+        return $results;
     }
 
 }

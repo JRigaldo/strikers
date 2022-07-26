@@ -1,6 +1,7 @@
 <form action="" method="POST" class="form__container" style="margin-bottom: 50px; max-width:100%;">
     <?= $form->input('name', 'Titre') ?>
     <?= $form->input('slug', 'URL') ?>
+    <?= $form->select('categories_ids', 'Catégories', $categories) ?>
     <?= $form->textarea('content', 'Contenu') ?>
     <?= $form->input('created_at', 'Date de création') ?>
     <button class="flex-center" style="margin-top: 40px;" type="submit">
