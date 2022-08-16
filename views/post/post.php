@@ -30,7 +30,9 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="article__image">
-                    <img src="/images/pictures/image-1.jpg" alt="">
+                    <?php if($post->getImage()): ?>
+                    <img src="<?= $post->getImageURL('large') ?>" alt="">
+                    <?php endif; ?>
                 </div>
                 <h1 class="article__title"><span class="title-date"><?= $post->getCreatedAt()->format('d.m.Y') ?></span>Sur la place Tarir</h1>
                 <div class="article__content padding-5">

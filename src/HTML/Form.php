@@ -19,7 +19,18 @@ class Form {
         return <<<HTML
             <div class="field">
                 <label for="field{$key}" class="field-label">{$label}</label>
-                <input class="field-input {$this->getInputClass($key)}" type="{$type}" id="field{$key}" name="{$key}" value="{$value}">
+                <input class="field-input {$this->getInputClass($key)}" type="{$type}" id="field{$key}" name="{$key}" value="{$value}" required>
+                {$this->getErrorFeedBack($key)}
+            </div>
+HTML;
+    }
+
+    public function file(string $key, string $label): string
+    {
+        return <<<HTML
+            <div class="field">
+                <label for="field{$key}" class="field-label">{$label}</label>
+                <input class="field-input {$this->getInputClass($key)}" type="file" id="field{$key}" name="{$key}">
                 {$this->getErrorFeedBack($key)}
             </div>
 HTML;
@@ -48,12 +59,12 @@ HTML;
 
         $optionHTML = implode('', $optionsHTML);
         return <<<HTML
-        <div>
-        <label for="field{$key}">{$label}:</label>
-        <select name="{$key}[]" id="field{$key}" class="{$this->getInputClass($key)}" required multiple>
-            {$optionHTML}
-        </select>
-        {$this->getErrorFeedBack($key)}
+        <div class="field-options">
+            <label for="field{$key}">{$label}:</label>
+            <select name="{$key}[]" id="field{$key}" class="select-field {$this->getInputClass($key)}" required multiple>
+                {$optionHTML}
+            </select>
+            {$this->getErrorFeedBack($key)}
         </div>
 HTML;
     }

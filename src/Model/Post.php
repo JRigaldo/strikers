@@ -11,6 +11,13 @@ class Post {
     private $content;
     private $slug;
     private $created_at;
+    private $image;
+    private $oldImage;
+    private $pendingUpload = false;
+    private $location;
+    private $website;
+    private $participation;
+    private $sharelink;
 
     private $categories = [];
 
@@ -107,6 +114,88 @@ class Post {
             $ids[] = $category->getID();
         }
         return $ids;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function getImageURL(string $format): ?string
+    {
+        if(empty($this->image)){
+            return null;
+        }
+        return '/uploads/posts/' . $this->image . '_' . $format . '.jpg';
+    }
+
+    public function setImage($image): self
+    {
+        if(is_array($image) && !empty($image['tmp_name'])){
+            if(!empty($image)){
+                $this->oldImage = $this->image;
+            }
+            $this->pendingUpload = true;
+            $this->image = $image['tmp_name'];
+        }
+        if(is_string($image) && !empty($image)){
+            $this->image = $image;
+        }
+        return $this;
+    }
+
+    public function getOldImage(): ?string
+    {
+        return $this->oldImage;
+    }
+
+    public function shouldUpload(): bool
+    {
+        return $this->pendingUpload;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation($location): self
+    {
+        $this->location = $location;
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite($website): self
+    {
+        $this->website = $website;
+        return $this;
+    }
+
+    public function getParticipation(): ?string
+    {
+        return $this->participation;
+    }
+
+    public function setParticipation($participation): self
+    {
+        $this->participation = $participation;
+        return $this;
+    }
+
+    public function getSharelink(): ?string
+    {
+        return $this->sharelink;
+    }
+
+    public function setSharelink($sharelink): self
+    {
+        $this->sharelink = $sharelink;
+        return $this;
     }
 
 }

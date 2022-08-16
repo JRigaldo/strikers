@@ -11,9 +11,10 @@ class PostValidators extends AbstractValidator {
         parent::__construct($data);
 
         $this->validator->rule('required', ['name', 'slug']);
-        $this->validator->rule('lengthBetween', ['name', 'slug'], 3, 200);
+        $this->validator->rule('lengthBetween', ['name', 'slug', 'location', 'website', 'participation', 'sharelink'], 3, 200);
         $this->validator->rule('slug', 'slug');
         $this->validator->rule('subset', 'categories_ids', array_keys($categories));
+        $this->validator->rule('image', 'image');
         $this->validator->rule(function($field, $value) use ($table, $postID)
         {
             return !$table->exists($field, $value, $postID);

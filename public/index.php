@@ -8,6 +8,8 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+define('UPLOAD_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'uploads');
+
 if(isset($_GET['page']) && $_GET['page'] === '1'){
     /*if($page === '1'){
         header('Location :' . $router->url('blog'));

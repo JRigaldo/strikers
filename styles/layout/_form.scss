@@ -213,7 +213,7 @@ textarea.field-textarea:before {
   color: var(--theme-secondary);
 }
 
-.field-message.is-focused:after {
+.field-label-message.is-focused:after {
   transform: scaleX(1);
 }
 

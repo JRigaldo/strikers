@@ -18,7 +18,12 @@ final class PostTable extends Table{
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'content' => $post->getContent(),
-            'created_at' => $post->getCreatedAt()->format('Y-m-d H:I:s')
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:I:s'),
+            'image' => $post->getImage(),
+            'location' => $post->getLocation(),
+            'website' => $post->getWebsite(),
+            'participation' => $post->getParticipation(),
+            'sharelink' => $post->getSharelink()
         ]);
 
         $post->setID($id);
@@ -31,7 +36,12 @@ final class PostTable extends Table{
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'content' => $post->getContent(),
-            'created_at' => $post->getCreatedAt()->format('Y-m-d H:I:s')
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:I:s'),
+            'image' => $post->getImage(),
+            'location' => $post->getLocation(),
+            'website' => $post->getWebsite(),
+            'participation' => $post->getParticipation(),
+            'sharelink' => $post->getSharelink()
         ], $post->getID());
     }
 

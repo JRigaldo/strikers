@@ -1,184 +1,28 @@
-/** ------- SELECT OPTIONS ------- **/
-
-.form-mobile {
-  display: flex;
-  flex-direction: row;
-  float: left;
-  margin-right: 5rem;
-}
-
-.select-box {
+.field-options{
   position: relative;
-  display: flex;
-  width: auto;
-  min-width: 250px;
-  flex-direction: column;
+  margin: 20px 0;
+
+  label, select{
+    display: block;
+  }
+
+  label{
+    color: var(--theme-secondary);
+    font-size: 12px;
+  }
+
+  select{
+    width: 100%;
+    border: none;
+    @include shadow;
+  }
 }
 
-.select-box .options-container {
-  position: absolute;
-  z-index: 20;
-  top: 55px;
-  left: 0;
-  background: var(--gray-light);
-  color: var(--theme-secondary);
-  max-height: 0;
-  width: 100%;
-  opacity: 0;
-  overflow: hidden;
-
-  order: 1;
-}
-
-.select-box .options-container a {
-  padding: 0;
-  cursor: pointer;
-  display: block;
-  transition-duration: 0.3s;
-  &:hover label{
-    background-color: var(--theme-primary);
+.select-field option{
+  padding: 5px 10px;
+  color: var(--dark);
+  &:checked{
+    background-color: var(--theme-secondary)!important;
     color: var(--white);
   }
-}
-
-.selected {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-light);
-  padding: 0 30px;
-  color: var(--theme-secondary);
-  position: relative;
-  text-align: left;
-  font-size: 1.1rem;
-  order: 0;
-  display: table;
-  height: 50px;
-  cursor: pointer;
-}
-
-.selected.field-inline {
-  margin: 0;
-}
-
-.selected span {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.select-box .options-container.active {
-  max-height: 240px;
-  opacity: 1;
-  overflow-y: scroll;
-}
-
-.selected svg.triangle {
-  position: absolute;
-  right: 7px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.select-box .options-container.active + .selected svg {
-  transform: rotateX(180deg);
-}
-
-.select-box .options-container::-webkit-scrollbar {
-  width: 5px;
-  background: var(--gray-light);
-}
-
-.select-box .options-container::-webkit-scrollbar-thumb {
-  background: var(--theme-primary);
-}
-
-.select-box label {
-  font-size: 0.9rem;
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-  width: 100%;
-  padding: 9px 0;
-  color: var(--theme-primary);
-}
-
-.select-box .option .radio {
-  opacity: 0;
-  display: none;
-}
-
-/** ------- SELECT FLAG ------- **/
-
-.select-box-icons {
-  position: relative;
-  display: flex;
-  width: 30px;
-  height: 100%;
-  flex-direction: column;
-  margin-right: 5px;
-  margin-left: 15px;
-  svg {
-    width: 30px;
-  }
-}
-
-.select-box-icons .options-container-icons {
-  position: absolute;
-  z-index: 10;
-  top: 55px;
-  left: 0;
-  color: var(--theme-secondary);
-  max-height: 0;
-  width: 100%;
-  opacity: 0;
-  overflow: hidden;
-
-  order: 1;
-}
-
-.selected-icon {
-  position: relative;
-  order: 0;
-  display: table;
-  height: 100%;
-  span {
-    display: table-cell;
-    height: 30px;
-    width: 30px;
-    vertical-align: middle;
-    .option-flag-icon {
-      width: 30px;
-    }
-  }
-}
-
-.select-box-icons .options-container-icons.active {
-  max-height: 240px;
-  opacity: 1;
-  overflow-y: scroll;
-}
-
-.selected-icon svg.triangle {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.select-box-icons .options-container-icons.active + .selected svg {
-  transform: rotateX(180deg);
-}
-
-.select-box-icons .option-icon {
-  margin: 15px 0;
-  cursor: pointer;
-  &:first-child {
-    margin-top: 0;
-  }
-  &:nth-child(3) {
-    margin-bottom: 0;
-  }
-}
-
-.select-box-icons .option-icon .radio {
-  opacity: 0;
 }
