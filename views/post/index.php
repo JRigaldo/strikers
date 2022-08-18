@@ -13,13 +13,16 @@ $link = $router->url('blog');
 
 ?>
 <main>
-    <section class="section__banner section__banner-main padding-10">
-        <a href="#"><h4 class="section__date">Juillet</h4></a>
-        <div class="row">
-            <?php foreach ($posts as $post): ?>
-
-                <?php require 'card.php' ?>
-            <?php endforeach; ?>
+    <section class="padding-10">
+        <div class="section__banner">
+            <div class="section__banner-main"></div>
+        </div>
+        <div class="container--top">
+            <div class="row">
+                <?php foreach ($posts as $post): ?>
+                    <?php require 'card.php' ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </section>
     <div class="btn-pages--container">

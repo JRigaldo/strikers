@@ -51,4 +51,9 @@ $router
     ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category')
     ->post('/admin/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
     ->match('/admin/category/new', 'admin/category/new', 'admin_category_new')
+    // FOOTER
+            //Pages static
+    ->get('/about', 'layouts/about', 'about')
+    ->get('/organizations', 'layouts/organizations', 'organizations')
+    ->get('/contributors', 'layouts/contributors', 'contributors')
     ->run();

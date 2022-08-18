@@ -45,24 +45,26 @@
 <div class="site-cache" id="site-cache"></div>
 <?= $content; ?>
 
-<footer class="container">
-    <ul>
-        <li>
-            <a href="#">
-                A propos
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Les associations
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Les contributeurs
-            </a>
-        </li>
-    </ul>
+<footer>
+    <div class="container-footer">
+        <ul>
+            <li>
+                <a href="<?= $router->url('about') ?>">
+                    A propos
+                </a>
+            </li>
+            <li>
+                <a href="<?= $router->url('organizations') ?>">
+                    Les associations
+                </a>
+            </li>
+            <li>
+                <a href="<?= $router->url('contributors') ?>">
+                    Les contributeurs
+                </a>
+            </li>
+        </ul>
+    </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/js/form.js"></script>

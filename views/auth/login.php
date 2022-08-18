@@ -22,8 +22,8 @@ if(!empty($_POST)){
                 header('Location:' . $router->url('admin_posts'));
                 exit();
             }
-        }catch(NotFoundException $e){
-
+        }catch(\Exception $e){
+            throw new \Exception("Cette page n'existe pas");
         }
     }
 }
@@ -38,12 +38,17 @@ $form = new Form($user, $errors);
             Vous ne pouvez pas accéder à cette page
         </div>
     <?php endif; ?>
-    <section class="section__banner section__banner-login padding-10 layout">
-        <img class="avatar" src="images/icons/user-icon.svg" alt="">
-        <form action="<?= $router->url('login') ?>" method="POST" class="form__container" style="margin-bottom: 50px;">
-            <?= $form->input('username', 'Nom d\'utilisateur') ?>
-            <?= $form->input('password', 'Mot de passe') ?>
-            <button class="flex-center" style="margin-top: 40px;" type="submit"><div class="btn-primary">Se connecter</div></button>
-        </form>
+    <section class="padding-10 layout">
+        <div class="section__banner">
+            <div class="section__banner-login"></div>
+        </div>
+        <div class="container--top">
+            <img class="avatar" src="images/icons/user-icon.svg" alt="">
+            <form action="<?= $router->url('login') ?>" method="POST" class="form__container" style="margin-bottom: 50px;">
+                <?= $form->input('username', 'Nom d\'utilisateur') ?>
+                <?= $form->input('password', 'Mot de passe') ?>
+                <button class="flex-center" style="margin-top: 40px;" type="submit"><div class="btn-primary">Se connecter</div></button>
+            </form>
+        </div>
     </section>
 </main>
