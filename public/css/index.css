@@ -1465,7 +1465,7 @@ article:hover .article__title {
 
 .post {
   position: relative;
-  z-index: -2; }
+  z-index: 1; }
 
 article.post:hover .article__title {
   color: var(--theme-primary);
